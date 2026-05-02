@@ -675,7 +675,6 @@ our_story
   position: relative;
   z-index: 0;
   overflow: visible;
-  isolation: isolate;
 }
 
 .our_story::before {
@@ -832,6 +831,15 @@ our_story
 /* スクロールバー消す */
 .story_slider::-webkit-scrollbar {
   display: none;
+}
+
+
+
+
+.gallery,
+.slider,
+.swiper {
+  overflow: visible;
 }
 
 

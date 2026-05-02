@@ -16,9 +16,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fadeUp').forEach(el => fadeObserver.observe(el));
 document.querySelectorAll('.js-fade-section').forEach(el => fadeObserver.observe(el));
 document.querySelectorAll('.pic_area_text').forEach(el => fadeObserver.observe(el));
-document.querySelectorAll('.story-header-inner').forEach(el => {
-  fadeObserver.observe(el);
-});
+document.querySelectorAll('.story-header-inner').forEach(el => fadeObserver.observe(el));
 document.querySelectorAll('.favorite-title').forEach(el => fadeObserver.observe(el));
 document.querySelectorAll('.eye_catch').forEach(el => fadeObserver.observe(el));
 
@@ -44,28 +42,25 @@ const swiper = new Swiper(".mySwiper", {
 
 
 // =====================
-// ストーリー線（ページスクロール連動）
+// ストーリー線（ページスクロール連動）※修正版
 // =====================
 const section = document.querySelector('.our_story');
 const timeline = document.querySelector('.timeline');
 
+if (section && timeline) {
+  window.addEventListener('scroll', () => {
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-window.addEventListener('scroll', () => {
-  const rect = section.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
+    const start = windowHeight;
+    const end = -section.offsetHeight;
 
-  // セクションの「開始〜終了」までの距離
-  const start = windowHeight; // 画面下から入る地点
-  const end = -section.offsetHeight;
+    let progress = (start - rect.top) / (start - end);
+    progress = Math.min(Math.max(progress, 0), 1);
 
-  // 現在位置を0〜1に正規化
-  let progress = (start - rect.top) / (start - end);
-
-  // 0〜1に制限
-  progress = Math.min(Math.max(progress, 0), 1);
-
-  timeline.style.setProperty('--line-height', (progress * 100) + '%');
-});
+    timeline.style.setProperty('--line-height', (progress * 100) + '%');
+  });
+}
 
 
 // =====================
@@ -119,14 +114,16 @@ favos.forEach(el => favObserver.observe(el));
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  nav.classList.toggle('show');
-});
-
-document.querySelectorAll('.nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    nav.classList.remove('show');
+if (hamburger && nav) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('show');
   });
-});
+
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      nav.classList.remove('show');
+    });
+  });
+}
