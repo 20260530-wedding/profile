@@ -336,6 +336,7 @@ gallery
 
 .scroll-text {
   overflow: hidden;
+  white-space: nowrap;
 }
 .scroll-track {
   display: flex;
@@ -349,15 +350,28 @@ gallery
   color: #5D4143;
   font-size: 2rem;
 }
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+a
+.track-inner {
+  display: flex;
+  flex-shrink: 0;
+  gap: 50px;
+}
+
+
 @keyframes scroll {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
+  100% {
     transform: translateX(-50%);
   }
 }
-
 
 /* ---------------
 swiper
@@ -422,6 +436,14 @@ swiper
 .swiper-pagination-bullet-active{
   background:#b36b6b;
 }
+
+/* 横向きスライダー */
+.horizontalSwiper .swiper-slide img{
+  aspect-ratio: 3 / 2; /* ←横長 */
+}
+
+
+
 
 .wave,.wave_02{
   line-height:0;
@@ -647,7 +669,7 @@ pic_area
 
 .pic_area_text {
   position: absolute;
-  top:42%;
+  top:35%;
   left: 50%;
   transform: translate(-50%, -40%); /* ← 少し上から入ってくる感じ */
   padding: 24px;
@@ -841,7 +863,6 @@ our_story
 .swiper {
   overflow: visible;
 }
-
 
 
 
@@ -1311,7 +1332,7 @@ our_story
 
 .card .text {
   position: absolute;
-  color: #5D4143;
+  color: #aaa;
   font-size: 12px;
   line-height: 1.6;
   letter-spacing: 0.05em;
@@ -1330,13 +1351,13 @@ our_story
 .eye_catch.show .card:nth-child(3) .text { transition-delay: 1s; }
 
 .left-top .text {
-  top: 10px;
+  top: 18px;
   left: 32px;
 }
 
 .right-vertical .text {
   right: 16px;
-  top: 50%;
+  top: 65%;
   transform: translateY(-40%);
 }
 
