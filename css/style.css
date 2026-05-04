@@ -825,20 +825,22 @@ our_story
 
 .story_slider {
   overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
 }
 
 .story_slides {
   display: flex;
   gap: 12px;
+  width: max-content;
 }
 
 .story_slides img {
-  flex: 0 0 100%;
-  max-width: 260px;
+  flex: 0 0 auto;
+  width: 260px;
   border-radius: 16px;
   scroll-snap-align: center;
-  margin: 0 auto;
 }
 
 .story_text {
@@ -1379,7 +1381,7 @@ our_story
   width: 100%;
   margin-top: 32px;
 
-  background: url('../img/fotter_.jpg') no-repeat right center / cover;
+  background: url('../img/fotter.jpg') no-repeat right center / cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1405,19 +1407,19 @@ our_story
   letter-spacing: 0.25rem;
   font-family: "Cinzel", serif;
   color: #fff;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 200;
 }
 
 .fotter .sub {
-  font-size: clamp(12px, 1.5vw, 15px);
+  font-size: 10px;
   line-height: 1.8;
   margin-bottom: 20px;
   color: #fff;
 }
 
 .fotter .en {
-  font-size: clamp(7px, 1.5vw, 13px);
+  font-size: 9px;
   letter-spacing: 0.18em;
   opacity: 0.8;
   color: #fff;
