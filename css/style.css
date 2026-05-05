@@ -951,7 +951,7 @@ our_story
 /* アイテム */
 .qa-item {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 8px;
   margin-bottom: 16px;
   opacity: 0;
@@ -969,6 +969,7 @@ our_story
   line-height: 1.1rem;
   text-align: left;
   color: #5D4143;
+  margin: 0;
 }
 
 /* アイコン */

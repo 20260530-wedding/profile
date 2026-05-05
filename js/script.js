@@ -24,22 +24,25 @@ document.querySelectorAll('.eye_catch').forEach(el => fadeObserver.observe(el));
 // =====================
 // Swiper
 // =====================
-const swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1.6,
-  centeredSlides: true,
-  spaceBetween: 20,
-  loop: true,
-  speed: 1200,
-  autoplay: {
-    delay: 3500,
-    disableOnInteraction: false
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
-  }
-});
+const swipers = document.querySelectorAll(".mySwiper");
 
+swipers.forEach((el) => {
+  new Swiper(el, {
+    slidesPerView: 1.6,
+    centeredSlides: true,
+    spaceBetween: 20,
+    loop: true,
+    speed: 1200,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: el.querySelector(".swiper-pagination"),
+      clickable: true
+    }
+  });
+});
 
 // =====================
 // ストーリー線（ページスクロール連動）※修正版
