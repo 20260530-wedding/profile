@@ -130,3 +130,12 @@ if (hamburger && nav) {
     });
   });
 }
+
+
+// =====================
+// 画像長押し保存禁止
+// =====================
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
